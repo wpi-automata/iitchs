@@ -23,6 +23,15 @@ IITCHS may not be the best match for problems that
 * Require rapidly changing plans in highly uncertain environments
 * Require solutions on the order of subseconds to seconds
 
+# Install
+`conda env create -f environment.yml`
+`conda activate iitchs_base`
+`./setup_conda_env_vars.sh`
+`conda deactivate`
+`conda activate iitchs_base`
+
+# Test Install
+
 
 # Citation Information
 
