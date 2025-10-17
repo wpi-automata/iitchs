@@ -1,5 +1,5 @@
-[submodule "src/PyTeLo"]
-	path = src/PyTeLo
+[submodule "src/pytelo"]
+	path = src/pytelo
 	url = git@github.com:wpi-automata/PyTeLo.git
 [submodule "src/catl"]
 	path = src/catl
