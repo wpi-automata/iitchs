@@ -3,6 +3,3 @@ __pycache__/
 OutputFiles/
 docker/*
 !docker/Dockerfile
-src/lomap
-src/catl
-src/python-stl
