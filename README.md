@@ -24,6 +24,7 @@ IITCHS may not be the best match for problems that
 * Require solutions on the order of subseconds to seconds
 
 # Install
+`git clone --recursive git@github.com:wpi-automata/iitchs.git`
 `conda env create -f environment.yml`
 `conda activate iitchs_base`
 `./setup_conda_env_vars.sh`
@@ -31,7 +32,7 @@ IITCHS may not be the best match for problems that
 `conda activate iitchs_base`
 
 # Test Install
-
+`python benchmarks/benchmark_scripts/run_benchmarks.py`
 
 # Citation Information
 
