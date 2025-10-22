@@ -1,6 +1,6 @@
-[submodule "src/PyTeLo"]
-	path = src/PyTeLo
-	url = git@github.com:wpi-automata/PyTeLo_SMT.git
+[submodule "src/pytelo"]
+	path = src/pytelo
+	url = git@github.com:wpi-automata/PyTeLo_SMT.git pytelo
 [submodule "src/catl"]
 	path = src/catl
 	url = git@github.com:wasserfeder/catl.git

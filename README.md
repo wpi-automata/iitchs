@@ -25,7 +25,7 @@ IITCHS may not be the best match for problems that
 
 # Install
 `git clone --recursive git@github.com:wpi-automata/iitchs.git`
-Install PyTeLo via the instructions in the PyTeLo README: https://github.com/erl-lehigh/PyTeLo/tree/main
+Install PyTeLo via the instructions in the PyTeLo README: https://github.com/wpi-automata/PyTeLo_SMT
 `conda env create -f environment.yml`
 `conda activate iitchs_base`
 `./setup_conda_env_vars.sh`
