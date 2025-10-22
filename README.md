@@ -24,36 +24,43 @@ IITCHS may not be the best match for problems that
 * Require solutions on the order of subseconds to seconds
 
 # Install
-`git clone --recursive git@github.com:wpi-automata/iitchs.git
+```bash
+git clone --recursive git@github.com:wpi-automata/iitchs.git
 conda env create -f environment.yml
 conda activate iitchs_base
 ./setup_conda_env_vars.sh
 conda deactivate
-conda activate iitchs_base`
+conda activate iitchs_base
+```
 
 # Install PyTeLo
 (partial instructions from https://github.com/wpi-automata/PyTeLo_SMT)
-`mkdir -p src/pytelo/lib
+```bash
+mkdir -p src/pytelo/lib
 cd src/pytelo/lib
 wget 'https://www.antlr.org/download/antlr-4.13.0-complete.jar'
 pip install antlr4-python3-runtime==4.13.0
-pip install scipy`
+pip install scipy
+pip install gurobipy
+```
 
 *ignore the next classpath instructions, already handeled in script setup_cona_env_vars.sh*
 
-`pip install gurobipy`
-
-`cd src/pytelo/stl
+```bash
+cd src/pytelo/stl
 antlr4 -Dlanguage=Python3 stl.g4
 cd src/pytelo/mtl
 antlr4 -Dlanguage=Python3 mtl.g4
 cd src/pytelo/wmtl
 antlr4 -Dlanguage=Python3 wmtl.g4
 cd src/pytelo/wstl
-antlr4 -Dlanguage=Python3 wstl.g4`
+antlr4 -Dlanguage=Python3 wstl.g4
+```
 
 # Test Install
-`python benchmarks/benchmark_scripts/run_benchmarks.py`
+```bash
+python benchmarks/benchmark_scripts/run_benchmarks.py
+```
 
 # Citation Information
 
