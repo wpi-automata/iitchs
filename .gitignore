@@ -3,3 +3,4 @@ __pycache__/
 OutputFiles/
 docker/*
 !docker/Dockerfile
+src/PyTeLo
