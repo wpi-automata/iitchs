@@ -38,11 +38,9 @@ if [ "$CONDA_DEFAULT_ENV" = "iitchs_base" ] || [ "${FORCE}" = "true" ]; then
 	echo "export PYTHONPATH=\${PYTHONPATH}:${SCRIPTDIR}/src" >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh
 	echo "export PYTHONPATH=\${PYTHONPATH}:${SCRIPTDIR}/benchmarks" >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh
 	
-	echo "export CLASSPATH=".:\${HOME}/antlr:\$CLASSPATH"" >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh
-	echo "alias antlr4='java -jar \${HOME}/antlr/antlr-4.8-complete.jar -visitor'" >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh
+	echo "export CLASSPATH=".:${SCRIPTDIR}/src/pytelo/lib/antlr-4.13.0-complete.jar:$CLASSPATH"" >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh
+	echo "alias antlr4='java -jar ${SCRIPTDIR}/src/pytelo/lib/antlr-4.13.0-complete.jar -visitor'" >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh
 	echo "alias grun='java org.antlr.v4.gui.TestRig'" >> ${CONDA_PREFIX}/etc/conda/activate.d/env_vars.sh
-	
-	
 	
 	#This resets the pythonpath to its pre-conda condition after deactivation
 	echo "export PYTHONPATH=\${PYTHONPATH_PRECONDA}" > ${CONDA_PREFIX}/etc/conda/deactivate.d/env_vars.sh
