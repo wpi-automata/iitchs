@@ -16,7 +16,8 @@ import logging
 import pulp
 from catl_planning.write_sol import write_sol
 # from lomap.lomap.classes.timer import Timer
-from pytelo.stl.stl2milp import stl2milp_pulp #TODO: Fix this to just pulp version?
+from pytelo.stl.stl2milp_pulp import STL2MILPPuLP as stl2milp_pulp #TODO: Fix this to just pulp version?
+# from pytelo.stl.stl2milp import stl2milp #TODO: Fix this to just pulp version?
 from catl import *
 from catl2stl import catl2stl
 from catl_planning.visualization import show_environment
@@ -544,8 +545,8 @@ def route_planning(inputs,ts, agents, formula,
         ranges['rho'] = (0, ub)
     else:
         ranges['rho'] = (0, 20-1) # TODO: kind of a hack
-    # stl_milp = stl2milp(stl, ranges=ranges, model=m, robust=robust)
-    stl_milp = stl2milp_pulp(stl, ranges=ranges, model=mpulp, robust=robust, verbose=verbose)
+    # stl_milp = stl2milp(stl, ranges=ranges, model=inputs, robust=robust)
+    stl_milp = stl2milp_pulp(stl, ranges=ranges, model=mpulp, robust=robust)
 
     stl_milp.M = 20 # set big M
     stl_milp.translate()
@@ -875,7 +876,7 @@ def generate_MILP_problems(ts, agents, formula,
     else:
         ranges['rho'] = (0, 20-1) # TODO: kind of a hack
     # stl_milp = stl2milp(stl, ranges=ranges, model=m, robust=robust)
-    stl_milp = stl2milp_pulp(stl, ranges=ranges, model=mpulp, robust=robust, verbose=verbose)
+    stl_milp = stl2milp_pulp(stl, ranges=ranges, model=mpulp, robust=robust)
 
     stl_milp.M = 20 # set big M
     stl_milp.translate()

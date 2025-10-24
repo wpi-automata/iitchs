@@ -12,7 +12,7 @@ matplotlib>=3.4.3
 multimethods==1.0.0
 networkx==3.0
 numpy
-pandas
+pandas==2.0.3
 # - git+ssh://git@github.mit.edu/iitchs/pp3#egg=pp
 pulp==2.4
 pyparsing==2.4.7

@@ -33,13 +33,33 @@ conda deactivate
 conda activate iitchs_base
 ```
 
+# Install catl
+(partial instructions from https://github.com/wasserfeder/catl)
+```bash
+mkdir -p src/catl/lib
+cd src/catl/lib
+wget 'https://www.antlr.org/download/antlr-4.13.0-complete.jar'
+pip install antlr4-python3-runtime==4.13.0
+```
+
+*ignore the next classpath instructions, already handeled in script setup_cona_env_vars.sh*
+
+if not already installed, install Java. openjdk 11 old but tested.
+```bash
+sudo apt install openjdk-11-jdk
+```
+
+```bash
+cd src/catl/catl
+antlr4 -Dlanguage=Python2 catl.g4
+```
+
 # Install PyTeLo
 (partial instructions from https://github.com/wpi-automata/PyTeLo_SMT)
 ```bash
 mkdir -p src/pytelo/lib
 cd src/pytelo/lib
 wget 'https://www.antlr.org/download/antlr-4.13.0-complete.jar'
-pip install antlr4-python3-runtime==4.13.0
 pip install scipy
 pip install gurobipy
 ```
@@ -57,10 +77,30 @@ cd src/pytelo/wstl
 antlr4 -Dlanguage=Python3 wstl.g4
 ```
 
+# Install Gurobi
+
+The actual install was handled in the environment.yml, but you need to set up your license file to handle large models
+
+* make an academic account: https://www.gurobi.com/features/academic-named-user-license/
+* once you get an account and choose a license type, a window will pop up showing: "grbgetkey \<license key\>"
+* in your activated conda env, run that copied command `grbgetkey <license key>`
+* save the license, gurobi.lic, is in your /home/\<user\> folder
+
 # Test Install
+
+**Run Benchmarks**
 ```bash
 python benchmarks/benchmark_scripts/run_benchmarks.py
 ```
+**Visualize Results**
+```bash
+python benchmarks/plotting_scripts/correlation_plots.py -p=output/last_run/
+```
+# Update Git submodules
+To pull in the most recent code from the branches defined in .gitmodules, run `git submodule update --remote`
+
+# Debug Tips
+* Model too large for size-limited license: https://support.gurobi.com/hc/en-us/articles/360051597492-How-do-I-resolve-a-Model-too-large-for-size-limited-Gurobi-license-error
 
 # Citation Information
 

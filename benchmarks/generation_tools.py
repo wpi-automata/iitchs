@@ -320,8 +320,16 @@ def generate_agents_by_total_and_distribution(total_agents, class_to_capability_
     else:
         rng = np.random.default_rng()
 
+    print(f"orig p: {capability_class_distribution}")
+
+    p = np.ones(shape=(len(list(class_to_capability_dict.keys())))) * (capability_class_distribution[0] / len(list(class_to_capability_dict.keys())))
+
+    print(f"dict: {class_to_capability_dict}")
+    print(f"a: {list(class_to_capability_dict.keys())}")
+    print(f"new p: {p}")
+
     
-    classes = rng.choice(list(class_to_capability_dict.keys()), size=total_agents, p=capability_class_distribution)
+    classes = rng.choice(list(class_to_capability_dict.keys()), size=total_agents, p=p)
     states = rng.choice(initial_state_list, size=total_agents)
     capabilities = [class_to_capability_dict[agent_class] for agent_class in classes]
 
